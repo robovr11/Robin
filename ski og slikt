@@ -1,0 +1,96 @@
+<!DOCTYPEhtml>
+<html lang="no">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Ski og slikt</title>
+		<link rel="stylesheet" type="text/css" href="ski_og_slikt.css">
+	</head>
+
+
+
+<body>
+		
+<header>
+	
+	<div class="grid-container">
+ 	 	<div></div>
+  		<a class="header" href="ski_og_slikt.html"> <div class="div2"> <h1> Ski og slikt </h1> </div> </a>
+  		<div></div>
+  		<div class="div4">	
+    		<div class="div-hover"> <a href="topptur.html">Topptur</a> </div>
+    		<div class="div-hover"> <a href="utstyr.html">Utstyr</a> </div>
+    		<div class="div-hover"> <a href="turar.html">Turar</a> </div>
+  	</div>
+
+</header>
+
+
+
+
+	<main>	
+
+<div class="stordiv">
+
+	<div class="driv2">
+
+		<div class="bilde-div"> <img alt="avatar" class="bilde-main" src="ski_vestlandet.jpg"> 
+			<div class="ski_vestlandet">
+				<a href="topptur.html"> <div class="tekst-topptur">Topptur</div> </a>
+			</div>
+		</div>
+
+		<div class="bilde-div"> <img alt="avatar" class="bilde-main" src="sgn.jpg">
+			<div class="ski_vestlandet">
+				<a href="utstyr.html"> <div class="tekst-topptur">Utstyr</div> </a>
+			</div>
+		 </div>
+
+		<div class="bilde-div"> <img alt="avatar" class="bilde-main" src="togga.jpg">
+			<div class="ski_vestlandet">
+				<a href="turar.html"> <div class="tekst-topptur">Turar</div> </a>
+		</div>
+	</div>
+</div>
+
+
+	<div class="grid-container_body">
+
+  	<div class="grid_2" > <p> Skibutikkar skriv om økt salg av skiutstyr, storbyane ser gleden av stillheita i fjella, fleire opnar auga for moglegheitane med lette ski i urøyrd snø, og folk i alle aldrar samlast i hop for å gå på ski i lag. Topptur er ikkje eit nytt fenomen, men populariteten har økt betrakteleg. Nokon tykkjer turane på høgfjellet er målet, mens andre tykkjer at høgdepunktet ligg mellom trea i bratte og lette skogar. Topptur er eit økande fenomen blant normenn. </p> </div>
+  	<div class="divmid">  
+ 		<div>  </div>
+  		<div> <img class="bilde_2" src="ivar_løvik.jpg"> </div>
+  		<div>  </div>
+  	</div>
+  	<div class="grid_2"> <p> På biletet ser du Ivar Løvik, ein lokal skikøyrar som dansar nedover hodlekveskogen. Ivar er ikkje einaste som trivst i denne lokale skogen. Denne finn du på venstre side etter å ha passert sogndal skisenter på veg mot færland i Sogndalsdalen. I denne skogen finn du ivrige skikøyrarar i alle aldrar. Typiske trekk er store smil og breie ski. </p></div>  
+	</div>
+
+</div>
+
+	</main>
+
+
+
+	<footer>
+<div class="grid-container_botn">
+  	<div>Robin Kalvatn Øvretun</div>
+  	<div>Sogndal vgs</div>
+  	<div>Informasjonsteknologi 1</div>
+</div>
+	</footer>
+
+
+	</body>
+
+
+
+
+
+</html>
+
+
+<div>
+	<div>
+		
+	</div>
+</div>
