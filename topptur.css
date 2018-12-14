@@ -1,0 +1,161 @@
+/* header*/
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  background-image: url("skibakgrunn.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  /*background-color: #2196F3;*/
+  padding: 10px;
+  margin: -0.5em;
+  margin-bottom: 0.5em;
+}
+
+.grid-container > div {
+  /*background-color: rgba(255, 255, 255, 0.8);*/
+  /*border: 1px solid black;*/
+  text-align: center;
+  font-size: 30px;
+  grid-template-rows: auto;
+}
+
+.div2{
+  grid-column-start: 1.5;
+  grid-column-end: 3;
+  height: 100px;  
+  text-align: center;
+}
+
+.header{
+  color: blue;
+  text-shadow: 5px 4px black;
+  font-size: 200%;
+}
+
+h1:hover{
+  animation: skiftafarga 1s infinite;
+  -webkit-animation: skiftafarga 1s infinite;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+  font-family: 'EB Garamond', serif;
+}
+
+.div4{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.div-hover a:hover{
+  opacity: 0.6;
+  color: black;
+  text-decoration: none;
+}
+
+body{
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+@keyframes skiftafarga {
+  0%    {background: transparent;}
+  50%   {background: lightblue;}
+  100%  {background: transparent;}
+}
+
+@-webkit-keyframes skiftafarga {
+  0%    {background: transparent;}
+  50%   {background: lightblue;}
+  100%  {background: transparent;}
+}
+
+
+
+/*main*/
+h2{
+  text-align: center;
+  font-size: 40px;
+  text-decoration: bold;
+  text-decoration-color: blue;
+  font-family: 'EB Garamond', serif;
+}
+
+#nedtur{
+  width: 20%;
+  height: auto;
+}
+
+.grid-container_body{
+  display: grid;
+  /*background-color: lightgrey;*/
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 150px 150px 150px 150px;
+  grid-gap: 10px;
+  padding: 20px;
+  margin: 30px;
+}
+
+.grid-container_body > div{
+  /*background-color: darkgrey;*/
+  text-align: center;
+}
+
+.link_i_teksten{
+  color: blue;
+}
+
+.div_1{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 6;
+  background-size: cover;
+}
+
+img{
+  width: 70%;
+ margin: 13%;
+}
+
+.div_4{
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 4;
+  margin: 10px;
+  margin-left: 13%;
+  text-align: center;
+  vertical-align: middle;
+  border: solid 3px black;
+  height: 100%;
+  width: 80%;
+}
+
+p{
+  font-family: 'EB Garamond', serif;
+
+}
+
+
+/* footer*/
+footer{
+  height: 5rem;
+}
+
+.grid-container_botn{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  background-color: #333333;
+  padding: 10px;
+  margin: -0.5em;
+
+}
+
+.grid-container_botn > div{
+  text-align: center;
+  font-size: 30px;
+  padding: 17px;
+}

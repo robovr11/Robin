@@ -1,0 +1,191 @@
+/* header*/
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  background-image: url("skibakgrunn.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  /*background-color: #2196F3;*/
+  padding: 10px;
+  margin: -0.5em;
+  margin-bottom: 0.5em;
+}
+
+.grid-container > div {
+  /*background-color: rgba(255, 255, 255, 0.8);*/
+  /*border: 1px solid black;*/
+  text-align: center;
+  font-size: 30px;
+  grid-template-rows: auto;
+}
+
+.div2{
+  grid-column-start: 1.5;
+  grid-column-end: 3;
+  height: 100px;  
+  text-align: center;
+}
+
+.header{
+  color: blue;
+  text-shadow: 5px 4px black;
+  font-size: 200%;
+}
+
+h1:hover{
+  animation: skiftafarga 1s infinite;
+  -webkit-animation: skiftafarga 1s infinite;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+  font-family: 'EB Garamond', serif;
+}
+
+.div4{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.div-hover a:hover{
+  opacity: 0.6;
+  color: black;
+  text-decoration: none;
+}
+
+body{
+	min-height: 100vh;
+	overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+
+/*main*/
+.stordiv{
+	display: grid;
+	grid-template-columns: 1fr 7fr;
+}
+
+.grid-container_body{
+  display: grid;
+  /*background-color: lightgrey; */
+  grid-template-rows: 200px 400px 200px;
+  grid-gap: 10px;
+  padding: 20px;
+  padding-bottom: 1px;
+  margin: -0.5em;
+}
+
+.grid-container_body > div{
+ /* background-color: darkgrey;*/
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+
+.bilde-div{
+  position: relative;
+  width: 50%;
+}
+
+.bilde-main{
+	height: 200px;
+	width: 200px;
+  opacity: 1;
+  display: block;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.ski_vestlandet{
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.bilde-div:hover .bilde-main{
+  opacity: 0.3;
+}
+
+.bilde-div:hover .ski_vestlandet{
+  opacity: 1;
+}
+
+.tekst-topptur{
+  background-color: #333333;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+
+.bilde_2{
+	width: auto;
+	height: 400px;
+}
+
+.divmid{
+	display: grid;
+	grid-template-columns: 2fr 1fr 2fr;
+	text-align: center;
+}
+
+.driv2{
+	display: grid;
+	/*background-color: lightgrey; */
+  	grid-template-rows: 200px 200px 200px;
+  	grid-gap: 90px;
+  	padding: 40px;
+  	margin: -0.5em;
+
+}
+
+p{
+	text-align: center;
+	font-size: 25px;
+  font-family: 'EB Garamond', serif;
+}
+
+
+
+/* footer*/
+footer{
+	height: 5rem;
+}
+
+.grid-container_botn{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  background-color: #333333;
+  padding: 10px;
+  margin: -0.5em;
+
+}
+
+.grid-container_botn > div{
+  text-align: center;
+  font-size: 30px;
+  padding: 17px;
+}
+
+@keyframes skiftafarga {
+  0%    {color: blue;}
+  50%   {color: black;}
+  100%  {color: blue;}
+}
+
+@-webkit-keyframes skiftafarga {
+  0%    {color: transparent;}
+  50%   {color: lightblue;}
+  100%  {color: transparent;}
+}
