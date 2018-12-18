@@ -130,7 +130,7 @@ body{
 
 .bilde_2{
 	width: auto;
-	height: 400px;
+	height: 380px;
 }
 
 .divmid{
@@ -150,9 +150,12 @@ body{
 }
 
 p{
-	text-align: center;
+	text-align: left;
 	font-size: 25px;
   font-family: 'EB Garamond', serif;
+  border: solid 1px black;
+  box-shadow: 8px 8px 10px #333333;
+  padding: 1%;
 }
 
 
@@ -166,26 +169,32 @@ footer{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
-  background-color: #333333;
   padding: 10px;
   margin: -0.5em;
-
+  background-color: #333333;
+  color: darkblue;
+  text-shadow: 1px 1px blue;
 }
 
 .grid-container_botn > div{
   text-align: center;
   font-size: 30px;
   padding: 17px;
+  
 }
 
+
+
+
+/*keyframes*/
 @keyframes skiftafarga {
   0%    {color: blue;}
-  50%   {color: black;}
+  50%   {color: darkblue;}
   100%  {color: blue;}
 }
 
 @-webkit-keyframes skiftafarga {
-  0%    {color: transparent;}
-  50%   {color: lightblue;}
-  100%  {color: transparent;}
+  0%    {color: blue;}
+  50%   {color: darkblue;}
+  100%  {color: blue;}
 }
