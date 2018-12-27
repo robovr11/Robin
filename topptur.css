@@ -90,7 +90,6 @@ h3{
   margin-top: 10%;
   font-size: 18px;
   text-align: center;
-
 }
 
 .div_h3{
@@ -98,10 +97,9 @@ h3{
   border: solid 3px black;
   border-radius: 50%;
   background-size: cover;
-  width: 30%;
-  height: 250px;
+  width: 450px;
+  height: 300px;
   margin: auto;
-
 }
 
 .grid-container_body{
@@ -124,12 +122,30 @@ h3{
   color: blue;
 }
 
+/*biletet*/
 .div_1{
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 6;
   background-size: cover;
+
+}
+
+.toggis{
+  display: block;
+}
+
+.toggamstrek{
+  display: none;
+}
+
+.div_1:hover .toggamstrek{
+  display: block;
+}
+
+.div_1:hover .toggis{
+  display: none;
 }
 
 img{
@@ -137,25 +153,27 @@ img{
   margin: 5%;
 }
 
+/*tekstboks*/
 .div_4{
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row-start: 2;
   grid-row-end: 4;
-  margin: 10px;
   margin-left: 13%;
-  text-align: left;
-  vertical-align: middle;
   border: solid 3px black;
   width: 80%;
-  font-size: 20px;
+  height: 100%;
+  font-size: 25px;
+}
+
+.div_4 a{
+  color: blue;
 }
 
 p{
   font-family: 'EB Garamond', serif;
   text-align: left;
 }
-
 
 /*tabell*/
 tr{
@@ -187,33 +205,39 @@ table{
 }
 
 .blåfjell:hover{
-   background-image: url(panorama-blåfjell.jpg);
+  background-image: url(panorama-blåfjell.jpg);
   background-size: cover;
+  text-align: center;
 }
 
 .kambafjell:hover{
   background-image: url(panorama-kambafjell.jpg);
   background-size: cover;
+  text-align: center;
 }
 
 .tylderingen:hover{
   background-image: url(panorama-tylderingen.jpg);
   background-size: cover;
+  text-align: center;
 }
 
 .svartholten:hover{
   background-image: url(panorama-svartholten.jpg);
   background-size: cover;
+  text-align: center;
 }
 
 .nonsholten:hover{
   background-image: url(panorama-nonsholten.jpg);
   background-size: cover;
+  text-align: center;
 }
 
 .togga:hover{
   background-image: url(panorama-togga.jpg);
   background-size: cover;
+  text-align: center;
 }
 
 .guide{

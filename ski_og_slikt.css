@@ -63,7 +63,7 @@ body{
 }
 
 
-/*main*/
+/*--------------------------------main--------------------------*/
 .stordiv{
 	display: grid;
 	grid-template-columns: 1fr 7fr;
@@ -86,7 +86,7 @@ body{
   width: 100%;
 }
 
-
+/*tre bilete på sida*/
 .bilde-div{
   position: relative;
   width: 50%;
@@ -160,13 +160,13 @@ p{
 
 
 
-/*sjema*/
 
 
 
 
 
-/* footer*/
+
+/*-----------------------------footer----------------------------*/
 footer{
 	height: 5rem;
 }
