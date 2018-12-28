@@ -163,7 +163,8 @@ img{
   border: solid 3px black;
   width: 80%;
   height: 100%;
-  font-size: 25px;
+  font-size: 21px;
+  line-height: 1.5;
 }
 
 .div_4 a{
@@ -208,42 +209,42 @@ table{
   background-image: url(panorama-blåfjell.jpg);
   background-size: cover;
   text-align: center;
-  color: transparent;
+  /*color: transparent;*/
 }
 
 .kambafjell:hover{
   background-image: url(panorama-kambafjell.jpg);
   background-size: cover;
   text-align: center;
-  color: transparent;
+  /*color: transparent;*/
 }
 
 .tylderingen:hover{
   background-image: url(panorama-tylderingen.jpg);
   background-size: cover;
   text-align: center;
-  color: transparent;
+  /*color: transparent;*/
 }
 
 .svartholten:hover{
   background-image: url(panorama-svartholten.jpg);
   background-size: cover;
   text-align: center;
-  color: transparent;
+  /*color: transparent;*/
 }
 
 .nonsholten:hover{
   background-image: url(panorama-nonsholten.jpg);
   background-size: cover;
   text-align: center;
-  color: transparent;
+  /*color: transparent;*/
 }
 
 .togga:hover{
   background-image: url(panorama-togga.jpg);
   background-size: cover;
   text-align: center;
-  color: transparent;
+  /*color: transparent;*/
 }
 
 .guide{
