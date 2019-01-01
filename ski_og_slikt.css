@@ -159,6 +159,29 @@ p{
 }
 
 
+/*Skjema*/
+form{
+  margin: auto;
+  margin-bottom: 40px;
+    text-align: center;
+    border: solid 2px black;
+    padding: 10px;
+    width: 37vw;
+    background-color: lightgrey;
+  }
+
+  input{
+    text-align: center;
+  }
+
+form p{
+  margin-top: 0;
+  background-color: white;
+  margin: 5px;
+  margin-bottom: 40px;
+  box-shadow: none;
+  text-align: center;
+}
 
 
 
