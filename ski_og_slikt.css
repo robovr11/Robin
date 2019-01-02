@@ -60,6 +60,11 @@ body{
 	overflow-x: hidden;
   margin: 0;
   padding: 0;
+  /*background-image: url(togga.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;*/
 }
 
 
@@ -77,6 +82,8 @@ body{
   padding: 20px;
   padding-bottom: 1px;
   margin: -0.5em;
+
+
 }
 
 .grid-container_body > div{
@@ -126,7 +133,6 @@ body{
   font-size: 16px;
   padding: 16px 32px;
 }
-
 
 .bilde_2{
 	width: auto;
