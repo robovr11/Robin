@@ -60,6 +60,8 @@ body{
 	overflow-x: hidden;
   margin: 0;
   padding: 0;
+  background-color: #aa956e;
+  background-image: linear-gradient(#aa956e, #393d6a);
   /*background-image: url(togga.jpg);
   background-attachment: fixed;
   background-position: center;
@@ -152,7 +154,6 @@ body{
   	grid-gap: 90px;
   	padding: 40px;
   	margin: -0.5em;
-
 }
 
 p{
@@ -162,6 +163,11 @@ p{
   border: solid 1px black;
   box-shadow: 8px 8px 10px #333333;
   padding: 1%;
+  background-color: #fcf0db;
+}
+
+.grid_2-1 p{
+  background-color: #c0c2cd;
 }
 
 
@@ -173,11 +179,12 @@ form{
     border: solid 2px black;
     padding: 10px;
     width: 37vw;
-    background-color: lightgrey;
+    background-color: #2D3469;
   }
 
   input{
     text-align: center;
+    background-color: #C2C5D6;
   }
 
 form p{
@@ -187,8 +194,21 @@ form p{
   margin-bottom: 40px;
   box-shadow: none;
   text-align: center;
+  background-color: #C2C5D6;
 }
 
+select{
+  background-color: #C2C5D6;;
+}
+
+button{
+  background-color: #C2C5D6;
+}
+
+button:hover{
+  background-color: #aa956e;
+  border-color: #aa956e;
+}
 
 
 
