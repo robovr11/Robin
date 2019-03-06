@@ -1,0 +1,47 @@
+<!DOCTYPEhtml>
+<html lang="no">
+	<head>
+		<meta charset="UTF-8">
+		<title>...</title>
+	</head>
+	<body>
+		
+<input type="file" id="inpFil" required> 
+		<div style="margin-top:20px"><input type="submit" id="knapp" value="Upload"></div>
+		<div id="info" style="margin-top:20px"></div> 
+        
+		<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA3KrBhE_J9Z7gLz-CU3jz2BCEfpFv3uf8",
+    authDomain: "test-9a61c.firebaseapp.com",
+    databaseURL: "https://test-9a61c.firebaseio.com",
+    projectId: "test-9a61c",
+    storageBucket: "test-9a61c.appspot.com",
+    messagingSenderId: "985328869423"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+		<script> 
+			var storage = firebase.storage(); 
+			var inpFil = document.getElementById("inpFil"); 
+			var info = document.getElementById("info"); 
+			function lastOppBilde() { 
+				var fil = inpFil.files[0]; 
+				var filnavn = fil.name; 
+				var plassering = storage.ref("bilder/" + filnavn); 
+				plassering.put(fil); 
+				inpFil.disabled = true;
+				info.innerHTML = "File '" + filnavn + "' e lasta opp ti brennebasn";
+			} 
+			knapp.addEventListener("click", lastOppBilde); 
+		</script> 
+
+	</body>
+</html>
+
