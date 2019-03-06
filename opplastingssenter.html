@@ -5,7 +5,7 @@
 		<title>...</title>
 	</head>
 	<body>
-		
+
 <input type="file" id="inpFil" required> 
 		<div style="margin-top:20px"><input type="submit" id="knapp" value="Upload"></div>
 		<div id="info" style="margin-top:20px"></div> 
@@ -37,7 +37,7 @@
 				var plassering = storage.ref("bilder/" + filnavn); 
 				plassering.put(fil); 
 				inpFil.disabled = true;
-				info.innerHTML = "File '" + filnavn + "' e lasta opp ti brennebasn";
+				info.innerHTML = "Fili '" + filnavn + "' e lasta opp ti brennebasn:)";
 			} 
 			knapp.addEventListener("click", lastOppBilde); 
 		</script> 
