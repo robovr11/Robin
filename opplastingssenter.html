@@ -2,16 +2,18 @@
 <html lang="no">
 	<head>
 		<meta charset="UTF-8">
-		<title>...</title>
+		<title>Opplasting</title>
 	</head>
 	<body>
 
+<!-- Her e knappadn-->
 <input type="file" id="inpFil" required> 
-		<div style="margin-top:20px"><input type="submit" id="knapp" value="Upload"></div>
+		<div style="margin-top:20px"><input type="submit" id="knapp" value="Last opp"></div>
 		<div id="info" style="margin-top:20px"></div> 
         
 		<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
 
+<!-- Databasn -->
 <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -26,7 +28,7 @@
   firebase.initializeApp(config);
 </script>
 
-
+<!-- Opplasting -->
 		<script> 
 			var storage = firebase.storage(); 
 			var inpFil = document.getElementById("inpFil"); 
@@ -41,6 +43,31 @@
 			} 
 			knapp.addEventListener("click", lastOppBilde); 
 		</script> 
+
+<!-- Chat -->
+<script type="text/javascript">
+	
+let txtMeldinger = document.getElementById('txtMeldinger');
+let database = firebase.database();
+let meldinger = database.ref("meldinger")
+let nyMelding = {
+	"avsendar": "1",
+	"tekst": "2 3"
+};
+meldinger.push(nyMelding);
+
+function visMelding(snapshot)
+{
+	var Melding = snapshot.val();
+	txtMeldinger.innerHTML += `<p>${melding.avsender}	seier
+	${melding.tekst}</p>`;
+}
+
+meldinger.on("child_added", visMelding);
+
+</script>
+
+
 
 	</body>
 </html>
