@@ -70,15 +70,15 @@
 
 	
 
-<form action="takk.html">
+<form id="skjema" action="takk.html">
 
 <p>Står du på ski? Fortel meg kva nivå du er på så eg kan utbetre nettsida!</p>
 
       <label>Namn:</label><br> 
-    <input type="text" name="fornamn" placeholder="Harald" required><br><br>
+    <input type="text" id="inpSendar" name="fornamn" placeholder="namn" required><br><br>
 
       <label>Alder(frivilleg):</label><br>
-    <input type="number" name="alder" placeholder="25"><br><br>
+    <input type="text" id="inpMeining" name="alder" placeholder="25"><br><br>
 
 	<select name="Velnivå" required> 
       <option value="">Vel nivå</option>
@@ -92,14 +92,60 @@
     <input type="range" name="interesse" placeholder="vanskeleg" required>
       <label>Alpint</label><br><br>
 
-      
-
-    
-
-
-    <button type="submit">Bekreft</button>
+    <button type="submit" class="button">Bekreft</button>
+      <h4>chatt</h4>
+    <article id="txtMeldingar"></article>
 
   </form>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA3KrBhE_J9Z7gLz-CU3jz2BCEfpFv3uf8",
+    authDomain: "test-9a61c.firebaseapp.com",
+    databaseURL: "https://test-9a61c.firebaseio.com",
+    projectId: "test-9a61c",
+    storageBucket: "test-9a61c.appspot.com",
+    messagingSenderId: "985328869423"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script type="text/javascript">
+  
+  let database = firebase.database();
+  let meldingar = database.ref("meldingar");
+  let skjema = document.
+  getElementById('skjema');
+  let inpSendar = document.
+  getElementById('inpSendar');
+  let inpMeining = document.
+  getElementById('inpMeining');
+  let txtMeldingar = document.
+  getElementById('txtMeldingar');
+  function visMelding(snapshot){
+    let melding = snapshot.val();
+    let meldingTekst = `<p>
+      <b>${melding.sendar}:</b>
+      <i>${melding.tekst}</i>
+    </p> `;
+    txtMeldingar.innerHTML = txtMeldingar.
+    innerHTML + meldingTekst;
+  }
+  function regNyMelding(evt){
+    evt.preventDefault();
+    let NyMelding = {
+      sendar: inpSendar.value,
+      tekst: inpMeining.value
+    };
+    meldingar.push(nyMelding);
+    inpMeining.value = "";
+  }
+  meldingar.on("child_added", visMelding);
+  skjema.onsubmit = regNyMelding;
+
+</script>
 
 	</main>
 
@@ -108,8 +154,8 @@
 	<footer>
 <div class="grid-container_botn">
   	<div>Robin Kalvatn Øvretun</div>
-  	<div>Sogndal vgs</div>
-  	<div>Informasjonsteknologi 1</div>
+  	<div></div>
+  	<div> <a href="opplastingssenter.html">Chat</div>
 </div>
 	</footer>
 

@@ -3,15 +3,48 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Opplasting</title>
+		<link rel="shortcut icon" href="fisk.png">
+		<link rel="stylesheet" type="text/css" href="topptur.css">
+
+<style type="text/css">
+	button{
+		color: red;
+		background-color: black;
+		border-color: red;
+	}
+
+	article{
+		color: white;
+	}
+</style>
+
 	</head>
 	<body>
 
+		<header>
+	
+	<div class="grid-container">
+ 	 	<div></div>
+  		<a class="header" href="index.html"> <div class="div2"> <h1> Ski og slikt </h1> </div> </a>
+  		<div></div>
+  		<div class="div4">	
+    		<div class="div-hover"> <a href="topptur.html">Topptur</a> </div>
+    		<div class="div-hover"> <a href="utstyr.html">Utstyr</a> </div>
+    		<div class="div-hover"> <a href="turar.html">Turar</a> </div>
+  	</div>
+
+</header>
+
+		<h1>Opplastingssenter</h1>
+
 <!-- Her e knappadn-->
-<input type="file" id="inpFil" required> 
+<input type="file" id="inpFil" onchange="previewFile()" required> 
 		<div style="margin-top:20px"><input type="submit" id="knapp" value="Last opp"></div>
 		<div id="info" style="margin-top:20px"></div> 
         
 		<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+
+		<img src="" height="200" alt="Image preview...">
 
 <!-- Databasn -->
 <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
@@ -30,6 +63,21 @@
 
 <!-- Opplasting -->
 		<script> 
+// ------------ forhåndsvisning ----------------------
+function previewFile() {
+  var preview = document.querySelector('img');
+  var file    = document.querySelector('input[type=file]').files[0];
+  var reader  = new FileReader();
+
+  reader.addEventListener("load", function () {
+    preview.src = reader.result;
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
 			var storage = firebase.storage(); 
 			var inpFil = document.getElementById("inpFil"); 
 			var info = document.getElementById("info"); 
@@ -39,33 +87,53 @@
 				var plassering = storage.ref("bilder/" + filnavn); 
 				plassering.put(fil); 
 				inpFil.disabled = true;
-				info.innerHTML = "Fili '" + filnavn + "' e lasta opp ti brennebasn:)";
+				info.innerHTML = "Fili '" + filnavn + "' e lasta opp ti basn:)";
 			} 
 			knapp.addEventListener("click", lastOppBilde); 
+
+
+
 		</script> 
 
 <!-- Chat -->
-<script type="text/javascript">
-	
-let txtMeldinger = document.getElementById('txtMeldinger');
-let database = firebase.database();
-let meldinger = database.ref("meldinger")
-let nyMelding = {
-	"avsendar": "1",
-	"tekst": "2 3"
-};
-meldinger.push(nyMelding);
+<h2>Sjatt</h2>
+<form id="skjema">
+	<input type="tekst" id="inpAvsender" placeholder="Namn">
+	<input style="width: 20%" type="tekst" id="inpMening" placeholder="Fortel kva du har på hjartet">
+	<button type="submit" class="button">Yeeet</button>
+</form>
 
-function visMelding(snapshot)
-{
-	var Melding = snapshot.val();
-	txtMeldinger.innerHTML += `<p>${melding.avsender}	seier
-	${melding.tekst}</p>`;
-}
+<br>
 
-meldinger.on("child_added", visMelding);
+<article id="txtMeldinger"><b>Meldingar:</b></article>
 
-</script>
+
+<script>
+			let database = firebase.database();
+			let meldinger = database.ref("meldinger");
+			let skjema = document.getElementById("skjema");
+			let inpAvsender =document.getElementById("inpAvsender");
+			let inpMening = document.getElementById("inpMening");
+			let txtMeldinger = document.getElementById("txtMeldinger");
+			function visMelding(snapshot) {
+				let melding = snapshot.val();
+				let meldingTekst = `<p> 
+				<b>${melding.avsender}: </b> 
+				<i>${melding.tekst}</i> </p>`; 
+				txtMeldinger.innerHTML = txtMeldinger.innerHTML + meldingTekst;
+			}
+			function regNyMelding(evt) {
+				evt.preventDefault();
+				let nyMelding ={ //her sto det var istaden for let
+					avsender: inpAvsender.value,
+					tekst: inpMening.value
+				};
+				meldinger.push(nyMelding);
+				inpMening.value="";
+			}
+			meldinger.on("child_added", visMelding);//sto - istaden for _
+			skjema.onsubmit = regNyMelding;
+		</script>
 
 
 
