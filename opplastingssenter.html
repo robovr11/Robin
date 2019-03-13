@@ -12,30 +12,35 @@
 		background-color: black;
 		border-color: red;
 	}
-
 	article{
 		color: white;
 	}
+
+	img{
+		width: 10%;
+		height: auto;
+	}
 </style>
+</head>
 
-	</head>
-	<body>
 
-		<header>
 	
+<body>
+
+	<header>
 	<div class="grid-container">
  	 	<div></div>
-  		<a class="header" href="index.html"> <div class="div2"> <h1> Ski og slikt </h1> </div> </a>
+  		<a class="header" href="index.html"> <div class="div2"> <h1> Sjatt og slikt:) </h1> </div> </a>
   		<div></div>
   		<div class="div4">	
     		<div class="div-hover"> <a href="topptur.html">Topptur</a> </div>
     		<div class="div-hover"> <a href="utstyr.html">Utstyr</a> </div>
     		<div class="div-hover"> <a href="turar.html">Turar</a> </div>
   	</div>
-
 </header>
 
-		<h1>Opplastingssenter</h1>
+
+		<h1 style="text-align: center; color: red; text-shadow: black 2px 3px">Opplastingssenter</h1>
 
 <!-- Her e knappadn-->
 <input type="file" id="inpFil" onchange="previewFile()" required> 
@@ -45,6 +50,7 @@
 		<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
 
 		<img src="" height="200" alt="Image preview...">
+
 
 <!-- Databasn -->
 <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
@@ -60,6 +66,8 @@
   };
   firebase.initializeApp(config);
 </script>
+
+
 
 <!-- Opplasting -->
 		<script> 
@@ -77,7 +85,7 @@ function previewFile() {
     reader.readAsDataURL(file);
   }
 }
-
+//opplasting
 			var storage = firebase.storage(); 
 			var inpFil = document.getElementById("inpFil"); 
 			var info = document.getElementById("info"); 
@@ -89,11 +97,17 @@ function previewFile() {
 				inpFil.disabled = true;
 				info.innerHTML = "Fili '" + filnavn + "' e lasta opp ti basn:)";
 			} 
+			function visBilde(snapshot) {
+				let fil = snapshot.val();
+				let filTekst = `<p> 
+				<b>${fil.avsender}: </b> 
+				<i>${fil.tekst}</i> </p>`; 
+				txtFil.innerHTML = txtFil.innerHTML + FilTekst;
+			}
 			knapp.addEventListener("click", lastOppBilde); 
 
-
-
 		</script> 
+
 
 <!-- Chat -->
 <h2>Sjatt</h2>
@@ -103,10 +117,7 @@ function previewFile() {
 	<button type="submit" class="button">Yeeet</button>
 </form>
 
-<br>
-
-<article id="txtMeldinger"><b>Meldingar:</b></article>
-
+<article id="txtMeldinger"><b>Meldingar</b></article>
 
 <script>
 			let database = firebase.database();
@@ -124,17 +135,16 @@ function previewFile() {
 			}
 			function regNyMelding(evt) {
 				evt.preventDefault();
-				let nyMelding ={ //her sto det var istaden for let
+				let nyMelding ={ 
 					avsender: inpAvsender.value,
 					tekst: inpMening.value
 				};
 				meldinger.push(nyMelding);
 				inpMening.value="";
 			}
-			meldinger.on("child_added", visMelding);//sto - istaden for _
+			meldinger.on("child_added", visMelding);
 			skjema.onsubmit = regNyMelding;
-		</script>
-
+	</script>
 
 
 	</body>
