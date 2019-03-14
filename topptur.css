@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
-  background-image: url("willem-mayer.png");
+  background-image: url("oransj.png");
   background-size: cover; 
   background-repeat: no-repeat;
   /*background-color: #2196F3;*/
@@ -28,7 +28,7 @@
 }
 
 .header{
-  color: blue;
+  color: red;
   text-shadow: 5px 4px black;
   font-size: 230%;
 }
@@ -64,15 +64,15 @@ body{
 
 /*keyframe*/
 @keyframes skiftafarga {
-  0%    {color: blue;}
-  50%   {color: darkblue;}
-  100%  {color: blue;}
+  0%    {color: red;}
+  50%   {color: orange;}
+  100%  {color: red;}
 }
 
 @-webkit-keyframes skiftafarga {
-  0%    {color: blue;}
-  50%   {color: darkblue;}
-  100%  {color: blue;}
+  0%    {color: red;}
+  50%   {color: orange;}
+  100%  {color: red;}
 }
 
 

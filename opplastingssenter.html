@@ -14,23 +14,39 @@
 	}
 	article{
 		color: white;
+		font-size: 150%;
+		text-align: center;
 	}
 
 	img{
 		width: 10%;
 		height: auto;
 	}
+
+	body{
+		background-color: orange;
+  		background-image: linear-gradient(orange, black, orange, black);
+	}
+
+	h2{
+		text-align: center; color: red; text-shadow: black 2px 3px
+	}
+
+	h1{
+		color: red;
+	}
+
 </style>
 </head>
 
 
 	
 <body>
-
+<br>
 	<header>
 	<div class="grid-container">
  	 	<div></div>
-  		<a class="header" href="index.html"> <div class="div2"> <h1> Sjatt og slikt:) </h1> </div> </a>
+  		<a class="header" href="index.html"> <div class="div2"> <h1> Chatt og slikt:) </h1> </div> </a>
   		<div></div>
   		<div class="div4">	
     		<div class="div-hover"> <a href="topptur.html">Topptur</a> </div>
@@ -40,7 +56,7 @@
 </header>
 
 
-		<h1 style="text-align: center; color: red; text-shadow: black 2px 3px">Opplastingssenter</h1>
+		<h2>Opplastingssenter</h1>
 
 <!-- Her e knappadn-->
 <input type="file" id="inpFil" onchange="previewFile()" required> 
@@ -110,7 +126,7 @@ function previewFile() {
 
 
 <!-- Chat -->
-<h2>Sjatt</h2>
+<h2>Chatt</h2>
 <form id="skjema">
 	<input type="tekst" id="inpAvsender" placeholder="Namn">
 	<input style="width: 20%" type="tekst" id="inpMening" placeholder="Fortel kva du har på hjartet">
@@ -146,6 +162,13 @@ function previewFile() {
 			skjema.onsubmit = regNyMelding;
 	</script>
 
+<footer>
+<div class="grid-container_botn">
+  	<div>Robin Øvretun</div>
+  	<div>Opplastingssenter</div>
+  	<div>2019</div>
+</div>
+</footer>
 
 	</body>
 </html>
