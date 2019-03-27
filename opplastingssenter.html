@@ -25,7 +25,7 @@
 
 	body{
 		background-color: orange;
-  		background-image: linear-gradient(orange, black, orange, black);
+  		background-image: linear-gradient(black, orange, black, orange);
 	}
 
 	h2{
@@ -59,13 +59,18 @@
 		<h2>Opplastingssenter</h1>
 
 <!-- Her e knappadn-->
-<input type="file" id="inpFil" onchange="previewFile()" required> 
-		<div style="margin-top:20px"><input type="submit" id="knapp" value="Last opp"></div>
-		<div id="info" style="margin-top:20px"></div> 
-        
+<!--<input type="file" id="inpFil" onchange="previewFile()" required> 
+<div id="info" style="margin-top:20px"></div> 
+ <input type="submit" id="knapp" value="Last opp">       
+        <div style="margin-top:20px"> </div>--> noke so ikkje funka her, netlify funka ....
+
+<input type="file" id="inpFil" required>
+<div id="info"></div>
+
+		
 		<script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
 
-		<img src="" height="200" alt="Image preview...">
+		<img src="" height="200" alt="Image preview...">-->
 
 
 <!-- Databasn -->
@@ -121,6 +126,13 @@ function previewFile() {
 				txtFil.innerHTML = txtFil.innerHTML + FilTekst;
 			}
 			knapp.addEventListener("click", lastOppBilde); 
+
+
+		// Check if file already exists
+/*if (file_exists($target_file)) {
+    echo "Sorry, file already exists.";
+    $uploadOk = 0;
+}
 
 		</script> 
 

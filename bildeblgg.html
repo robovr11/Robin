@@ -1,0 +1,196 @@
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Bildebloggen</title>
+
+
+	<style type="text/css">
+		
+			html {
+	font-size: 100%;
+	}
+	
+	body {
+	margin: 0;
+	font-family: sans-serif;
+	}
+	
+	header {
+	background-color: lightblue;
+	}
+	
+	header #skjema {
+	padding: 1rem;
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: center;
+	align-items: center;
+	grid-gap: 1rem;
+	}
+	
+	#skjema input[type=text] {
+	padding: 0.5rem;
+	}
+	
+	header label {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center; 
+	padding: 0.5rem;
+	width: 2rem;
+	height: 2rem;
+	font-weight: 800;
+	background-color: darkorange;
+	color: white;
+	border-radius: 50%;
+	}
+	
+	main {
+	padding: 1rem;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-gap: 1rem;
+	}
+	
+	main article {
+	display: grid;
+	grid-auto-flow: row;
+	background-color: orange;
+	cursor: pointer;
+	}
+	
+	main img {
+	width: 100%;
+	}
+	
+	main article p {
+	padding: 1rem;
+	text-align: center;
+	justify-self: center;
+	align-self: end; 
+	}
+	
+	#overlay {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.85);
+	display: none;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+	}
+	
+	#overlay img {
+	width: 120px;
+	}
+</style>
+</head>
+
+<body>
+
+<header>
+<form id="skjema">
+<label>1</label>
+<input type="file" id="inpBilde" required>
+<label>2</label>
+<input type="text" id="inpTekst" required placeholder="Beskriv bildet">
+<label>3</label>
+<button type="submit">Last opp bilde</button>
+</form>
+</header>
+
+<main></main>
+
+<div id="overlay">
+<img src="./spinner.gif">
+</div>
+
+
+<!-- Databasn -->
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA3KrBhE_J9Z7gLz-CU3jz2BCEfpFv3uf8",
+    authDomain: "test-9a61c.firebaseapp.com",
+    databaseURL: "https://test-9a61c.firebaseio.com",
+    projectId: "test-9a61c",
+    storageBucket: "test-9a61c.appspot.com",
+    messagingSenderId: "985328869423"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+<script>
+	
+const inpBilde = document.querySelector("#inpBilde");
+const inpTekst = document.querySelector("#inpTekst");
+const skjema = document.querySelector("#skjema");
+const overlay = document.querySelector("#overlay");
+
+const main = document.querySelector("main");
+
+// Firebase
+const db = firebase.database();
+const storage = firebase.storage();
+
+const bloggen = db.ref("bloggen");
+
+
+// Funksjon som lagrer bilde i databasen
+function lagreBilde(evt) {
+evt.preventDefault();
+
+// Viser overlay
+overlay.style.display = "flex";
+
+// Bilde som skal lastes opp
+const bilde = inpBilde.files[0];
+
+// Hvor skal vi lagre bildet
+const lagringsplass = storage.ref("bloggbilder/" + ( new Date() ) + bilde.name);
+
+// Vi laster opp bildet til storage
+lagringsplass.put(bilde)
+.then( bilde => bilde.ref.getDownloadURL() )
+.then( url => {
+bloggen.push({
+url: url,
+tekst: inpTekst.value
+});
+skjema.reset();
+overlay.style.display = "none";
+} );
+
+}
+
+function visBilde(snap) {
+const key = snap.key;
+const data = snap.val();
+
+main.innerHTML = `
+<article>
+<img src="${data.url}">
+<p>${data.tekst}</p>
+<a href="url">hhh</a>
+</article>
+` + main.innerHTML;
+}
+
+
+// Event Listeners
+skjema.addEventListener("submit", lagreBilde);
+bloggen.on("child_added", visBilde);
+
+
+</script>
+
+	<a href=""></a>
+
+</body>
+</html>
