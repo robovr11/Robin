@@ -168,8 +168,10 @@
 		<label>3</label>
 		<button id="bekreft" type="submit">YEEET</button>
 
+
 		<input type="text" id="">
 		<button id="sok" type="">Søk</button>
+
 	</form>
 </div>
 
@@ -231,6 +233,7 @@ function visBilde(snap) {
 const key = snap.key;
 const data = snap.val();
 
+
 main.innerHTML = `
 <article>
 
@@ -245,6 +248,17 @@ main.innerHTML = `
                 leitetekst=leitefelt.value;
                 visBilde();
                 
+sok.addEventListener ("onclick", visBilde);
+}
+
+function leitBilder() {
+	main.innerHTML = " ";
+	bukser
+		.orderByChild("namn")
+		.startAt(leitetekst)
+		.endAt(leitetekst)
+		.on("child_added", visBilde);
+}
 
 
 
