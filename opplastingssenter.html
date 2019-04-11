@@ -23,6 +23,8 @@
 	img{
 		width: 10%;
 		height: auto;
+		padding: 8px;
+
 	}
 
 	body{
@@ -90,11 +92,12 @@
 	grid-auto-flow: row;
 	background-color: darkred;
 	cursor: pointer;
+	border-radius: 20%;
+	border: solid black 3px;
 	}
 	
 	main img {
-	width: 90%;
-	/*margin: 10%;*/
+	width: 80%;
 	}
 	
 	main article p {
@@ -158,7 +161,7 @@
 </script>
 
 
-										<h2>Opplastingssenter</h1>
+			<h2>Opplastingssenter</h1>
 
 <div>
 	<form id="skjema">
@@ -167,9 +170,22 @@
 		<label>2</label>
 		<input type="text" id="inpTekst" required placeholder="Kva vil du kalla biletet?">
 		<label>3</label>
-		<button id="bekreft" type="submit">YEEET</button>
-Søk Bilder:
+		
+			<!--<select required="">
+				<option>Natur</option>
+				<option>Portrett</option>
+				<option>Kunst</option>
+				<option>Tull</option>
+			</select>-->
+		
+			
+<button id="bekreft" type="submit">YEEET</button>
+
+					Søk Bilder:
 		<input id="sokefelt" type="text">
+
+		<!--<input id="sokKategori" type="sokefelt" name="">-->
+
 	</form>
 </div>
 
@@ -187,27 +203,35 @@ Søk Bilder:
 <script>
 	
 const inpBilde = document.querySelector("#inpBilde");
-const inpTekst = document.querySelector("#inpTekst");
+const inpTekst = document.querySelector("#inpTekst"); 
 const skjema = document.querySelector("#skjema");
 const overlay = document.querySelector("#overlay");
 const main = document.querySelector("main");
 const sokefelt = document.getElementById("sokefelt");
 var soketekst = "";
+/*const inpKategori = document.getElementById("inpKategori");
+var kategorisok ="";
+const sokKategori = document.getElementById("sokKategori");
+var soketekstKategori = "";*/
 
 
 
 // Firebase
 const db = firebase.database();
 const storage = firebase.storage();
-
 const bloggen = db.ref("bloggen");
-
 
 sokefelt.oninput = sok;
   function sok () {
         soketekst=sokefelt.value;
 		visUtvalg();
 }
+
+/*sokKategori.oninput = sokKategori;
+  function sokKategori () {
+        soketekstKategori=sokKategori.value;
+		visUtvalg();
+}*/
 
 // Funksjon som lagrer bilde i databasen
 function lagreBilde(evt) {
@@ -228,7 +252,8 @@ lagringsplass.put(bilde)
 .then( url => {
 bloggen.push({
 url: url,
-tekst: inpTekst.value
+tekst: inpTekst.value,
+/*kategori: inpKategori.value*/
 });
 skjema.reset();
 overlay.style.display = "none";
@@ -243,6 +268,16 @@ overlay.style.display = "none";
            .endAt(soketekst + '\uf8ff')
            .on("child_added", visBilde);
        }
+
+/*function visKategori() {
+        main.innerHTML = " ";
+        bloggen
+           .orderByChild("value")
+           .startAt(Natur)
+           .endAt(Tull + '\uf8ff')
+           .on("child_added", visBilde);
+       }*/
+
 function visBilde(snap) {
 const key = snap.key;
 const data = snap.val();
@@ -284,6 +319,7 @@ bloggen.on("child_added", visBilde);
 			let inpAvsender =document.getElementById("inpAvsender");
 			let inpMening = document.getElementById("inpMening");
 			let txtMeldinger = document.getElementById("txtMeldinger");
+
 			function visMelding(snapshot) {
 				let melding = snapshot.val();
 				let meldingTekst = `<p> 
@@ -291,6 +327,7 @@ bloggen.on("child_added", visBilde);
 				<i>${melding.tekst}</i> </p>`; 
 				txtMeldinger.innerHTML = meldingTekst + txtMeldinger.innerHTML  ;
 			}
+
 			function regNyMelding(evt) {
 				evt.preventDefault();
 				let nyMelding ={ 
