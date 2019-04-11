@@ -142,7 +142,8 @@
 
 <!-- Databasn -->
 
-<script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -167,11 +168,8 @@
 		<input type="text" id="inpTekst" required placeholder="Kva vil du kalla biletet?">
 		<label>3</label>
 		<button id="bekreft" type="submit">YEEET</button>
-
-
-		<input type="text" id="">
-		<button id="sok" type="">Søk</button>
-
+Søk Bilder:
+		<input id="sokefelt" type="text">
 	</form>
 </div>
 
@@ -192,8 +190,11 @@ const inpBilde = document.querySelector("#inpBilde");
 const inpTekst = document.querySelector("#inpTekst");
 const skjema = document.querySelector("#skjema");
 const overlay = document.querySelector("#overlay");
-
 const main = document.querySelector("main");
+const sokefelt = document.getElementById("sokefelt");
+var soketekst = "";
+
+
 
 // Firebase
 const db = firebase.database();
@@ -201,6 +202,12 @@ const storage = firebase.storage();
 
 const bloggen = db.ref("bloggen");
 
+
+sokefelt.oninput = sok;
+  function sok () {
+        soketekst=sokefelt.value;
+		visUtvalg();
+}
 
 // Funksjon som lagrer bilde i databasen
 function lagreBilde(evt) {
@@ -228,40 +235,25 @@ overlay.style.display = "none";
 } );
 
 }
-
+	function visUtvalg() {
+        main.innerHTML = " ";
+        bloggen
+           .orderByChild("tekst")
+           .startAt(soketekst)
+           .endAt(soketekst + '\uf8ff')
+           .on("child_added", visBilde);
+       }
 function visBilde(snap) {
 const key = snap.key;
 const data = snap.val();
 
-
 main.innerHTML = `
 <article>
-
 <p>${data.tekst}</p>
 <a href="${data.url}"><img src="${data.url}"></a>
 </article>
 ` + main.innerHTML;
 }
-
- leitefelt.oninput = leit;
-            function leit () {
-                leitetekst=leitefelt.value;
-                visBilde();
-                
-sok.addEventListener ("onclick", visBilde);
-}
-
-function leitBilder() {
-	main.innerHTML = " ";
-	bukser
-		.orderByChild("namn")
-		.startAt(leitetekst)
-		.endAt(leitetekst)
-		.on("child_added", visBilde);
-}
-
-
-
 
 // Event Listeners
 skjema.addEventListener("submit", lagreBilde);
@@ -280,7 +272,7 @@ bloggen.on("child_added", visBilde);
 	<button type="submit" class="button">Yeeet</button>
 </form>
 
-<article id="txtMeldinger"> <b>Meldingar</b> </article>
+<article id="txtMeldinger"></article>
 
 
 

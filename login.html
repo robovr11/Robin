@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="no">
+	<head>
+		<meta charset="UTF-8">
+		<title>Inn logg!</title>
+	</head>
+	
+	<body>
+	    <form name="myForm">
+			<p>Diu mao neeeestn logga inn føst diu;)</p>
+			<p>Tast inn passORD fø å komma deg viare.</p><br>
+			<input type="password" name="pwd" maxlength="10">
+			<input type="button" onclick="sjekkPassord()" value="Logg inn">
+		</form> 
+	  
+	  <script>
+		function sjekkPassord() {
+			var x = document.forms["myForm"]["pwd"].value;
+			if (x == "passORD") {
+				window.location.assign("opplastingssenter.html");
+			}
+			else if (x == ""){
+				alert("Please type your password");  
+			}
+			else{
+				alert("Incorrect password, try again");
+			}
+		}
+	  </script>	
+	  
+	</body>	
+</html>
