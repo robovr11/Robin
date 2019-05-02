@@ -58,7 +58,7 @@ a{
 body{
 	min-height: 100vh;
 	overflow-x: hidden;
-  background-color: #000000;
+  /*background-color: #000000;*/
   background-image: linear-gradient(#a69981, #000000)
 }
 
@@ -292,9 +292,8 @@ footer{
   background-color: #33333390;
   color: darkblue;
   text-shadow: 1px 1px blue;
-  padding: 10px;
-  margin: -0.5em;
-
+  padding: 10px;*/
+  margin-bottom: -0.5em;*/
 }
 
 .grid-container_botn > div{

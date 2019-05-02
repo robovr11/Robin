@@ -24,6 +24,7 @@
 		width: 10%;
 		height: auto;
 		padding: 8px;
+		transform: rotate(69deg);
 
 	}
 
@@ -121,18 +122,16 @@
 	
 	#overlay img {
 	width: 800px;
-	}
-
+}
 </style>
 </head>
 
 
 <body>
-<br>
 	<header>
 	<div class="grid-container">
  	 	<div></div>
-  		<a class="header" href="index.html"> <div class="div2"> <h1> Chatt og slikt:) </h1> </div> </a>
+  		<a class="header" href="index.html"> <div class="div2"> <h1> Chatt og slikt </h1> </div> </a>
   		<div></div>
   		<div class="div4">	
     		<div class="div-hover"> <a href="topptur.html">Topptur</a> </div>
@@ -144,8 +143,6 @@
 
 
 <!-- Databasn -->
-
-
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -161,7 +158,7 @@
 </script>
 
 
-			<h2>Opplastingssenter</h1>
+			<h2>Opplastingssenter</h2>
 
 <div>
 	<form id="skjema">
@@ -169,23 +166,10 @@
 		<input type="file" id="inpBilde" required>
 		<label>2</label>
 		<input type="text" id="inpTekst" required placeholder="Kva vil du kalla biletet?">
-		<label>3</label>
-		
-			<!--<select required="">
-				<option>Natur</option>
-				<option>Portrett</option>
-				<option>Kunst</option>
-				<option>Tull</option>
-			</select>-->
-		
-			
-<button id="bekreft" type="submit">YEEET</button>
-
-					Søk Bilder:
+		<label>3</label>			
+		<button id="bekreft" type="submit">Last opp bilete</button>
+					Søk i bilder:
 		<input id="sokefelt" type="text">
-
-		<!--<input id="sokKategori" type="sokefelt" name="">-->
-
 	</form>
 </div>
 
@@ -201,7 +185,7 @@
 
 <!--Skript ti opplastingen-->
 <script>
-	
+
 const inpBilde = document.querySelector("#inpBilde");
 const inpTekst = document.querySelector("#inpTekst"); 
 const skjema = document.querySelector("#skjema");
@@ -209,12 +193,6 @@ const overlay = document.querySelector("#overlay");
 const main = document.querySelector("main");
 const sokefelt = document.getElementById("sokefelt");
 var soketekst = "";
-/*const inpKategori = document.getElementById("inpKategori");
-var kategorisok ="";
-const sokKategori = document.getElementById("sokKategori");
-var soketekstKategori = "";*/
-
-
 
 // Firebase
 const db = firebase.database();
@@ -226,12 +204,6 @@ sokefelt.oninput = sok;
         soketekst=sokefelt.value;
 		visUtvalg();
 }
-
-/*sokKategori.oninput = sokKategori;
-  function sokKategori () {
-        soketekstKategori=sokKategori.value;
-		visUtvalg();
-}*/
 
 // Funksjon som lagrer bilde i databasen
 function lagreBilde(evt) {
@@ -253,7 +225,6 @@ lagringsplass.put(bilde)
 bloggen.push({
 url: url,
 tekst: inpTekst.value,
-/*kategori: inpKategori.value*/
 });
 skjema.reset();
 overlay.style.display = "none";
@@ -268,15 +239,6 @@ overlay.style.display = "none";
            .endAt(soketekst + '\uf8ff')
            .on("child_added", visBilde);
        }
-
-/*function visKategori() {
-        main.innerHTML = " ";
-        bloggen
-           .orderByChild("value")
-           .startAt(Natur)
-           .endAt(Tull + '\uf8ff')
-           .on("child_added", visBilde);
-       }*/
 
 function visBilde(snap) {
 const key = snap.key;
@@ -298,8 +260,7 @@ bloggen.on("child_added", visBilde);
 
 
 
-
-<!-- Chat -->
+<!------------------------ Chat ------------------------->
 <h2>Chatt</h2>
 <form id="sjatt">
 	<input type="text" id="inpAvsender" placeholder="Namn">
