@@ -1,5 +1,6 @@
 /* header*/
 .grid-container {
+  min-width: 1200px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
@@ -90,6 +91,8 @@ body{
 
 .grid-container_body > div{
  /* background-color: darkgrey;*/
+ min-width: 900px;
+ max-width: 900px;
   text-align: center;
   height: 100%;
   width: 100%;
@@ -139,6 +142,7 @@ body{
 .bilde_2{
 	width: auto;
 	height: 380px;
+  transform: translateY(40px);
 }
 
 .divmid{
@@ -168,6 +172,8 @@ p{
 
 .grid_2-1 p{
   background-color: #c0c2cd;
+  transform: translateY(10px);
+
 }
 
 
@@ -252,4 +258,63 @@ footer{
   0%    {color: blue;}
   50%   {color: darkblue;}
   100%  {color: blue;}
+}
+
+@media(max-width: 900px){
+  .grid_2{
+    width: 300px;
+  }
+}
+
+@media(max-width: 500px){
+  .grid-container{
+    grid-template-columns: 1fr;
+    width: 30px;
+  }
+
+  .div2{
+    width: 400px;
+    transform: translateX(20px);
+  }
+
+  .stordiv{
+    grid-template-columns: 1fr;
+  }
+
+  .tekst-topptur{
+    transform: translateX(-200%);
+  }
+
+  .bilde-main{
+    width: 50%;
+    height: auto;
+    transform: translateX(50%);
+  }
+
+  p{
+    width: 400px;
+    padding: 20px;*/
+    transform: translateX(10px);
+  }
+
+  .bilde_2{
+    width: 400px;
+    transform: translateX(-220px);
+    margin: 200px;
+    margin-bottom: 200px;
+  }
+
+  .grid_2-1{
+    transform: translateY(200px);
+  }
+
+  #skjema{
+    opacity: 0;
+  }
+}
+
+@media(max-width: 600px){
+  .{
+    grid-template-columns: 1fr;
+  }
 }

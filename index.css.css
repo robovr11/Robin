@@ -8,6 +8,7 @@ html {
 	}
 	
 	header {
+		min-width: 1200px;
 	background-color: lightblue;
 	}
 	
