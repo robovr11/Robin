@@ -1,13 +1,11 @@
 /* header*/
 .grid-container {
-  /*min-width: 1200px;*/
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
   background-image: url("willem-mayer.png");
-  background-size: cover; 
-  background-repeat: no-repeat;
-  /*background-color: #2196F3;*/
+  background-size: cover;
   padding: 10px;
   margin: -0.5em;
   margin-bottom: 0.5em;
@@ -24,7 +22,6 @@
 .div2{
   grid-column-start: 1.5;
   grid-column-end: 3;
-  height: 25vh;  
   text-align: center;
 }
 
@@ -85,10 +82,6 @@ body{
   padding: 20px;
   padding-bottom: 1px;
   margin: -0.5em;
-}
-
-#hedda{
-  display: none;
 }
 
 .grid-container_body > div{
@@ -263,12 +256,12 @@ footer{
 }
 
 
+/*-----------------------MEDIA--------------------------*/
 
 @media(max-width: 500px){
 
-
   .grid-container{
-    width: 1600px;
+    width: 450vw;
     align-items: middle;
   }
 
@@ -280,22 +273,10 @@ footer{
     grid-template-columns: 1fr;
   }
 
-  #hedda{
-    display: initial;
+  .driv2{
+    display: block;
+    size: 100px;
   }
-
-  #hedda > div:hover{
-        flex: 4;
-        transform: scale(1.2);
-        opacity: 1;
-        z-index: 2;
-      }
-
-      #fisk1{background-image: url(fisk.png);}
-      #fisk2{background-image: url(fisk.png);}
-      #fisk3{background-image: url(fisk.png);}
-      #fisk4{background-image: url(fisk.png);}
-      #fisk5{background-image: url(fisk.png);}
 
   .bilde-main{
     width: 100%;
@@ -307,8 +288,8 @@ footer{
   }
 
   .tekst-topptur{
-    /*transform: translateX(-200%);*/
-    text-align: center;
+    font-size: 50px;
+    margin: auto;
   }
 
   .bilde-main{
@@ -322,17 +303,16 @@ footer{
     margin-bottom: 100px;
   }
 
-  p{
-    width: 800px;
-    padding: 40px;
-    transform: translateX(20px);
-  }
-
   .bilde_2{
     width: 800px;
     transform: translateX(-220px);
     margin: 400px;
     margin-bottom: 400px;
+  }
+
+  .grid_2{
+    width: 200%;
+
   }
 
   .grid_2-1{
