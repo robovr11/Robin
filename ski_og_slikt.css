@@ -1,6 +1,6 @@
 /* header*/
 .grid-container {
-  min-width: 1200px;
+  /*min-width: 1200px;*/
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
@@ -85,8 +85,10 @@ body{
   padding: 20px;
   padding-bottom: 1px;
   margin: -0.5em;
+}
 
-
+#hedda{
+  display: none;
 }
 
 .grid-container_body > div{
@@ -260,35 +262,64 @@ footer{
   100%  {color: blue;}
 }
 
-@media(max-width: 900px){
-  .grid_2{
-    width: 300px;
-  }
-}
+
 
 @media(max-width: 500px){
+
+
   .grid-container{
-    grid-template-columns: 1fr;
-    width: 60px;
+    width: 1600px;
+    align-items: middle;
   }
 
-  .div2{
-    width: 800px;
-    transform: translateX(20px);
+  .div4{
+    display: none;
   }
 
   .stordiv{
     grid-template-columns: 1fr;
   }
 
+  #hedda{
+    display: initial;
+  }
+
+  #hedda > div:hover{
+        flex: 4;
+        transform: scale(1.2);
+        opacity: 1;
+        z-index: 2;
+      }
+
+      #fisk1{background-image: url(fisk.png);}
+      #fisk2{background-image: url(fisk.png);}
+      #fisk3{background-image: url(fisk.png);}
+      #fisk4{background-image: url(fisk.png);}
+      #fisk5{background-image: url(fisk.png);}
+
+  .bilde-main{
+    width: 100%;
+  }
+
+  .bilde-div{
+    width: 100%;
+    margin: auto;
+  }
+
   .tekst-topptur{
-    transform: translateX(-200%);
+    /*transform: translateX(-200%);*/
+    text-align: center;
   }
 
   .bilde-main{
-    width: 75%;
+    width: 600px;
     height: auto;
-    transform: translateX(50%);
+    transform: translateX(140vW);
+    margin-bottom: 100px;
+  }
+
+  .div-hover{
+    margin-bottom: 100px;
   }
 
   p{
@@ -310,15 +341,5 @@ footer{
 
   #skjema{
     opacity: 0;
-  }
-
-  .div4{
-    display: none;
-  }
-}
-
-@media(max-width: 600px){
-  .{
-    grid-template-columns: 1fr;
   }
 }
